@@ -5,7 +5,7 @@ import { MessageCircle, LogOut, Settings } from 'lucide-react';
 import { Avatar } from '@/components/chat/avatar';
 
 export default function Home() {
-  const navigate = useNavigate();
+  const navigate = useNavigate();  // use to navigate page
   const { user, logout } = useAuth();
 
   const handleStartChat = () => {
