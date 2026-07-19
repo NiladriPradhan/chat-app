@@ -13,8 +13,9 @@ export const config = {
     'http://127.0.0.1:5174',
     // Production frontend on Vercel
     'https://chat-app-frontend-psi-one.vercel.app',
+    /\.vercel\.app$/, // Allow all Vercel preview environments
     ...(process.env.CLIENT_URL ? [process.env.CLIENT_URL] : []),
-  ].filter((v, i, a) => a.indexOf(v) === i), // deduplicate
+  ].filter((v, i, a) => a.indexOf(v) === i) as (string | RegExp)[], // deduplicate
   mongoUri: process.env.MONGO_URI || 'mongodb+srv://niladrip347_db_user:kL4bgMgFxzG8NZxe@cluster0.9lit3t5.mongodb.net/?appName=Cluster0',
   jwt: {
     secret: process.env.JWT_SECRET || 'replace_me_with_strong_secret',
