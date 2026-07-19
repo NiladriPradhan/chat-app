@@ -53,7 +53,7 @@ export class MessagesService {
 
     const message = await this.messagesRepo.create(conversationId, {
       senderId: requesterId,
-      content: dto.content,
+      content: dto.content ?? '',
       attachments: dto.attachments,
     });
 
