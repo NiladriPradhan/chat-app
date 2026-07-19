@@ -34,6 +34,7 @@ import {
   searchUsers,
   createDirectConversation,
 } from "@/features/chat/api/chat";
+import { getServerBaseUrl } from "@/lib/api";
 
 // ── helpers ───────────────────────────────────────────────────────────────────
 
@@ -744,7 +745,7 @@ export default function ChatDashboard() {
     const attachments = (message.attachments ?? []).map(
       (att: any, index: number) => {
         const fileUrl = att.fileUrl || att.url || "";
-        const url = import.meta.env.VITE_API_URL?.replace("/api", "") + fileUrl;
+        const url = getServerBaseUrl() + fileUrl;
         const fileType = att.fileType || att.type || "";
         const isImage = fileType.startsWith("image/");
         const isDoc =

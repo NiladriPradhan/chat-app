@@ -1,6 +1,15 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000/api';
+/** Full REST API base (e.g. http://localhost:4000/api) */
+export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000/api';
+
+/**
+ * Server origin WITHOUT the /api suffix.
+ * Use this for socket connections & static asset URLs (uploads, avatars, etc.).
+ */
+export function getServerBaseUrl(): string {
+  return API_URL.replace(/\/api\/?$/, '');
+}
 
 export const api = axios.create({
   baseURL: API_URL,

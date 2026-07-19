@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import { io, Socket } from 'socket.io-client';
 import { useAuth } from './AuthContext';
+import { getServerBaseUrl } from '../lib/api';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -73,7 +74,7 @@ export function SocketProvider({ children }: { children: React.ReactNode }) {
       return;
     }
 
-    const socketUrl = (import.meta.env.VITE_API_URL as string)?.replace('/api', '') || 'http://localhost:4000';
+    const socketUrl = getServerBaseUrl();
 
     const newSocket = io(socketUrl, {
       withCredentials: true,

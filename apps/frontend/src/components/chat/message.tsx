@@ -4,6 +4,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Avatar } from "./avatar";
 import { CheckCheck, Clock, MoreHorizontal } from "lucide-react";
+import { getServerBaseUrl } from "../../lib/api";
 
 interface MessageProps {
   id: string;
@@ -207,14 +208,14 @@ export function Message({
                     <a
                       key={i}
                       href={
-                        import.meta.env.VITE_API_URL?.replace("/api", "") + url
+                        getServerBaseUrl() + url
                       }
                       target="_blank"
                       rel="noreferrer"
                     >
                       <img
                         src={
-                          import.meta.env.VITE_API_URL?.replace("/api", "") +
+                          getServerBaseUrl() +
                           url
                         }
                         alt={name}
@@ -228,7 +229,7 @@ export function Message({
                   <a
                     key={i}
                     href={
-                      import.meta.env.VITE_API_URL?.replace("/api", "") + url
+                      getServerBaseUrl() + url
                     }
                     target="_blank"
                     rel="noreferrer"
