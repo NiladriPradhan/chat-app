@@ -11,7 +11,8 @@ export const config = {
     'http://localhost:5174',
     'http://127.0.0.1:5173',
     'http://127.0.0.1:5174',
-    // Production frontend (add your deployed frontend URL here)
+    // Production frontend on Vercel
+    'https://chat-app-frontend-psi-one.vercel.app',
     ...(process.env.CLIENT_URL ? [process.env.CLIENT_URL] : []),
   ].filter((v, i, a) => a.indexOf(v) === i), // deduplicate
   mongoUri: process.env.MONGO_URI || 'mongodb+srv://niladrip347_db_user:kL4bgMgFxzG8NZxe@cluster0.9lit3t5.mongodb.net/?appName=Cluster0',
