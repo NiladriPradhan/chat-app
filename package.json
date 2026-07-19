@@ -1,0 +1,12 @@
+{
+  "name": "chat-app-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "dependencies": {
+    "class-variance-authority": "^0.7.1"
+  }
+}
